@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>282</width>
+    <height>244</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SMPControl</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="exitButton">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>170</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EXIT</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>261</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>M4 - UTS150PP</string>
+       </property>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>26</y>
+          <width>77</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="m4_inbutton">
+           <property name="text">
+            <string>IN</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m4_outbutton">
+           <property name="text">
+            <string>OUT</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="m4_pos_label">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Not Set </string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>M5 - UTS100PP</string>
+       </property>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>34</y>
+          <width>77</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="m5_inbutton">
+           <property name="text">
+            <string>IN</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m5_outbutton">
+           <property name="text">
+            <string>OUT</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="m5_pos_label">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Not Set</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="door_label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Door Status :</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>282</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
