@@ -39,6 +39,9 @@ class SMPControl (QtWidgets.QMainWindow):
 
         self.ui.exitButton.clicked.connect(self.closeup)
         self.ui.m4_inbutton.clicked.connect (self.m4_in_event)
+        self.ui.m4_outbutton.clicked.connect(self.m4_out_event)
+        self.ui.m5_inbutton.clicked.connect(self.m5_in_event)
+        self.ui.m5_outbutton.clicked.connect(self.m5_out_event)
         self.bc.new_door_status.connect (self.update_door_status)
         self.bc.start()
 
