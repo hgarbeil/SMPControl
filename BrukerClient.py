@@ -15,10 +15,11 @@ class BrukerClient (QtCore.QThread) :
     def __init__(self):
         QtCore.QThread.__init__(self)
         self.door_status = 0
+        self.connect()
 
 
-    def get_door_status (self):
-        message = "[INSTRUMENTSTATUS]\n"
+    def get_door_status(self):
+        message = "[INSTRUMENTSTATUS /DOORLOCK ]\n"
         try:
             print "sending message to bis"
             self.command_sock.send(message)
@@ -28,7 +29,7 @@ class BrukerClient (QtCore.QThread) :
                 print data
                 if "[INSTRUMENT" in data:
                     print "found message"
-                    loc = data.find("[DOORLOCK=")
+                    loc = data.find("DOORLOCK=")
                     newstr = data[loc:]
                     eqloc = newstr.find('=')
                     self.door_status = int(newstr[eqloc + 1])
@@ -128,9 +129,9 @@ class BrukerClient (QtCore.QThread) :
             #     self.newangles.emit()
             #
 
-            if "[INSTRUMENT" in data:
+            if "[INSTRUMENTSTATUS" in data:
                 print "found message"
-                loc = data.find("[DOORLOCK=")
+                loc = data.find("DOORLOCK=")
                 newstr = data[loc:]
                 eqloc = newstr.find('=')
                 self.door_status = int(newstr[eqloc + 1])

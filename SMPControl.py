@@ -16,35 +16,26 @@ class SMPControl (QtWidgets.QMainWindow):
         self.smp = MySMPEpics()
 
         #check for epics connection
-        curval = caget("Dera:m4.VAL")
+        curval = caget("Dera:m5.VAL")
         # if status is not equal to 1 messagebox that info and exit
         if curval == None:
-            mbox = QtGui.QMessageBox()
+            mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("GridScan Problem : EPICS")
-            mbox.setIcon(QtGui.QMessageBox.Critical)
+            mbox.setIcon(QtWidgets.QMessageBox.Critical)
             mbox.setText("Problem with EPICS communication")
             mbox.setInformativeText("Start EPICS IOC")
             mbox.exec_()
-            sys.exit(app.exit(-1))
+            #sys.exit(app.exit(-1))
         self.bc = BrukerClient()
-
+        self.door_status = self.bc.get_door_status()
         # get start positions of the m4 and m5 motors
-        self.m4_instate = self.smp.get_m4_instate()
-        self.m5_instate = self.smp.get_m5_instate()
-        print "SMP M4 : %d"%self.m4_instate
-        print "SMP M5 : %d"%self.m5_instate
-        self.set_motor_labels()
+        #self.m4_instate = self.smp.get_m4_instate()
+        #self.m5_instate = self.smp.get_m5_instate()
+        #print "SMP M4 : %d"%self.m4_instate
+        #print "SMP M5 : %d"%self.m5_instate
+        #self.set_motor_labels()
         # get door status, 1 if locked, otherwise zero
-        self.door_status = bc.get_door_status()
-        curval = caget ("Dera:m4.VAL")
-        if curval == None :
-            mbox = QtGui.QMessageBox ()
-            mbox.setWindowTitle ("GridScan Problem : EPICS")
-            mbox.setIcon (QtGui.QMessageBox.Critical)
-            mbox.setText ("Problem with EPICS communication")
-            mbox.setInformativeText("Start EPICS IOC")
-            mbox.exec_()
-            sys.exit (app.exit(-1))
+
 
         self.ui.exitButton.clicked.connect(self.closeup)
         self.ui.m4_inbutton.clicked.connect (self.m4_in_event)
