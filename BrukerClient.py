@@ -10,7 +10,7 @@ class BrukerClient (QtCore.QThread) :
     serverip = '128.171.152.86'
     shutter_state = QtCore.pyqtSignal(int)
     newangles = QtCore.pyqtSignal ()
-    new_door_status = QtCore.pyqt.Signal(int)
+    new_door_status = QtCore.pyqtSignal(int)
 
     def __init__(self):
         QtCore.QThread.__init__(self)

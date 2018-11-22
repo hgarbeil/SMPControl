@@ -14,6 +14,18 @@ class SMPControl (QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         self.ui = uic.loadUi("mainwin.ui", self)
         self.smp = MySMPEpics()
+
+        #check for epics connection
+        curval = caget("Dera:m4.VAL")
+        # if status is not equal to 1 messagebox that info and exit
+        if curval == None:
+            mbox = QtGui.QMessageBox()
+            mbox.setWindowTitle("GridScan Problem : EPICS")
+            mbox.setIcon(QtGui.QMessageBox.Critical)
+            mbox.setText("Problem with EPICS communication")
+            mbox.setInformativeText("Start EPICS IOC")
+            mbox.exec_()
+            sys.exit(app.exit(-1))
         self.bc = BrukerClient()
 
         # get start positions of the m4 and m5 motors
@@ -114,7 +126,7 @@ class SMPControl (QtWidgets.QMainWindow):
         self.set_motor_labels()
 
 
-	def closeup(self) :
+    def closeup(self) :
         self.bc.stop()
         sys.exit(app.exit (0))
 
