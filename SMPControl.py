@@ -27,13 +27,14 @@ class SMPControl (QtWidgets.QMainWindow):
             mbox.exec_()
             #sys.exit(app.exit(-1))
         self.bc = BrukerClient()
+        # currently this should return a 1, but need to figure out how to check if door is secured or not
         self.door_status = self.bc.get_door_status()
         # get start positions of the m4 and m5 motors
-        #self.m4_instate = self.smp.get_m4_instate()
-        #self.m5_instate = self.smp.get_m5_instate()
-        #print "SMP M4 : %d"%self.m4_instate
-        #print "SMP M5 : %d"%self.m5_instate
-        #self.set_motor_labels()
+        self.m4_instate = self.smp.get_m4_instate()
+        self.m5_instate = self.smp.get_m5_instate()
+        print "SMP M4 : %d"%self.m4_instate
+        print "SMP M5 : %d"%self.m5_instate
+        self.set_motor_labels()
         # get door status, 1 if locked, otherwise zero
 
 

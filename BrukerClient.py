@@ -40,6 +40,7 @@ class BrukerClient (QtCore.QThread) :
                     # print data
         except socket.error, msg:
             print "Drive error : %s" % msg
+        return (1)
 
 
     def connect (self) :
@@ -135,7 +136,7 @@ class BrukerClient (QtCore.QThread) :
                 newstr = data[loc:]
                 eqloc = newstr.find('=')
                 self.door_status = int(newstr[eqloc + 1])
-                self.new_door_status.emit (self.door_status)
+                #self.new_door_status.emit (self.door_status)
 
                 print 'Door status : %d' % self.door_status
 
